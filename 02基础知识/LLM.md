@@ -34,29 +34,50 @@
 
 ### 3. 全球主流大模型对比分析
 
-#### 第一梯队：顶尖闭源模型
-* **Anthropic Claude 系列**：
-  * **Fable 5 / Mythos 5**：能力天花板，擅长复杂推理、长程 Agent、硬核编程（SWE-bench 类）。价格较高，安全限制及拒答偏多。
-  * **Opus 5**：高性价比旗舰模型，能力接近顶部，Agent 和写作表现稳定，为当前主力旗舰。
-* **OpenAI GPT-5.6 系列**：
-  * **Sol**：旗舰模型，编程与工具调用能力突出，生态完备（Codex 与各类插件）。
-  * **Terra / Luna**：中低档模型，Luna 成本极低，适合大规模量产部署。
-* **xAI Grok 4.5**：
-  * 性能位于 GPT-5.6 Sol 与 Opus 5 之间，核心优势在于实时信息检索（特别是 X 平台数据）和较少的审查，上下文窗口为 500K。
+### 闭源前沿模型（综合能力最强）
 
-#### 第二梯队：国产崛起与开源阵营
-* **月之暗面 Kimi K3**：开源权重强者，长上下文与推理能力均衡。
-* **阿里 Qwen3.8 Max**：中文能力、工具链与生态完善，综合表现跻身全球前列。
-* **DeepSeek V4 系列 (尤其 Flash)**：性价比极高，低成本实现优秀的推理与代码能力。
-* **智谱 GLM-5.2**：开源阵营优秀代表，在特定垂直任务表现亮眼。
-* **Google Gemini 3.x**：多模态与超长上下文保持优势，纯文本推理有所掉队，Flash 系列具备速度与成本优势。
-* **Meta Muse Spark**：开源阵营黑马
+这些模型在推理、编码、Agent、多模态等多数基准中领先，上下文窗口普遍达到 **1M tokens** 左右。
 
-#### 多模型协同策略总结
-现代应用已进入多模型混用阶段：
-1. **追求极致能力**：选择 Claude Fable / Opus 5
-2. **注重生态与全能**：选择 GPT-5.6 Sol
-3. **注重性价比与实时信息**：选择 Grok 4.5 或 DeepSeek
-4. **国产可控与开源需求**：选择 Kimi K3 或 Qwen3.8 Max
+|排名参考|模型|厂商|主要擅长领域|备注|
+|---|---|---|---|---|
+|常居前几|**Claude Opus 5.5**|Anthropic|多步推理、Agentic 任务、复杂编码、知识工作、长上下文理解|多个榜单（BenchLM、Artificial Analysis 等）常列第一或并列第一；性价比较高（约 $4/$20 per M tokens）|
+|前列|**Claude Fable 5.1 / Fable 5**|Anthropic|编码、Agent、知识工作、高可靠性工作流|部分综合/编码榜单领先；价格较高|
+|前列|**Claude Sonnet 5.5**|Anthropic|高吞吐量生产编码、复杂分析、平衡性能|速度快、成本低于 Opus，适合大规模使用|
+|前列|**GPT-6 Astra / GPT-6.1 Sol**|OpenAI|软件工程、计算机使用、数学/科学推理、Agent|Astra 偏重工程与工具使用；Sol 系列性价比高、速度快|
+|前列|**Gemini 4 Argon**|Google|科学推理、多模态、Agent、部分 Arena 用户偏好|在 GPQA 等科学基准表现突出，价格有竞争力|
+|新晋前列|**Muse Wonder / Muse Wonder Full**|Meta|推理、文本创作、代码、大上下文企业工作流|2026年10月发布，首次正面挑战前沿闭源模型|
 
-常见组合分工为：Claude 撰写代码与长文，Grok 负责实时检索，DeepSeek 处理批量任务，Qwen/Kimi 处理中文本地化需求。
+**其他值得关注的闭源模型**：
+
+- **Grok 系列**（xAI）：在部分速度与推理场景有竞争力。
+- OpenAI 的更轻量版本（如 GPT-6 Luna/Terra 等）适合日常与高性价比需求。
+
+### 开放权重/开源领域顶尖模型
+
+中国厂商在此领域整体领先（Artificial Analysis 等开源指数前几名多为中国模型）。
+
+- **MiMo-V2.6-Pro**（小米）：当前最强开源之一，综合与 Agent 能力突出。
+- **GLM-5.3 / GLM-5 系列**（智谱 Z.ai）：智能指数高，速度快，性价比优秀。
+- **DeepSeek V4 系列**（尤其 V4.1 Flash / Pro）：Agentic 编码、推理表现强，价格极低。
+- **Kimi K3**（月之暗面 Moonshot）：编码与长上下文好。
+- **Qwen3.8 Max** 等（阿里）：多语言、综合能力均衡。
+- Meta 的 Muse Spark 系列、Google Gemma 4 等也有一定存在感，但整体落后于中国头部开源模型。
+
+### 按任务大致擅长方向（基于当前主流基准与社区反馈）
+
+- **复杂推理 / 多步 Agent / 知识工作**：Claude Opus 5.5、Claude Fable 系列、GPT-6 Astra。
+- **编程 / 软件工程 / Codex 类任务**：Claude 系列（尤其 Fable/Opus）、GPT-6 Astra/Sol、DeepSeek V4。
+- **数学 / 科学推理**：GPT-6 Astra、Gemini 4 Argon、Claude 高阶版本。
+- **多模态（图像/视频理解与生成）**：Gemini 系列、部分 Claude 与 GPT 高阶版本。
+- **速度 + 性价比 / 大规模部署**：Claude Haiku 5.5、Gemini Flash 系列、GLM Flash、DeepSeek Flash、GPT Luna 等轻量版。
+- **长上下文（真正有效利用）**：Claude 与 GPT 高阶版本、部分 Gemini。
+- **本地/私有部署**：优先选开源强者（MiMo、GLM、DeepSeek、Qwen）。
+
+### 简要总结与选择建议
+
+- **追求绝对最强综合能力**：优先 Claude Opus 5.5 或 Fable 5.1，其次 GPT-6 Astra / Gemini 4 Argon。
+- **追求性价比与速度**：Claude Sonnet 5.5、GPT-6.1 Sol、Gemini Flash、开源的 DeepSeek/GLM Flash。
+- **开源/可私有化**：小米 MiMo、智谱 GLM、DeepSeek、月之暗面 Kimi、阿里 Qwen。
+- 排名变化很快（几乎每周都有新版本），建议结合具体任务在 LMArena、Artificial Analysis、BenchLM 等实时榜单验证，并做小规模实测。价格、速度和上下文有效性也很关键。
+
+数据来源主要参考 2026年10月中旬的 Artificial Analysis、BenchLM、LMArena、LM Market Cap 等公开排行榜与厂商发布信息。

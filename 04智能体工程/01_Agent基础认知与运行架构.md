@@ -193,7 +193,7 @@ Agent Loop 是 Agent 在运行期间反复进行模型调用、处理行动请�
 |用户取消任务|用户主动取消正在运行的任务|停止后续操作|
 
 agent运行链路：
-[[agent运行链路.png]]
+![[agent运行链路.png]]
 
 agent知识信息图：
-[[agent知识图谱.png]]
+![[agent知识图谱.png]]

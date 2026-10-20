@@ -14,7 +14,7 @@ Agent Loop 是底层的执行控制循环，负责驱动“接收输入-模型�
 
 ### 1.1.2 系统提示词契约与解析机制
 ReAct 的稳定流转高度依赖系统提示词（System Prompt）对模型输出格式的强约束。一个标准的 ReAct 提示词结构包含以下核心模块：
-* **角色定义与流转规约**：明确要求模型严格按照 Thought:、Action:、Observation: 的规范顺序输出。
+* **角色定义与流转规约**：明确要求模型严格按照 Thought、Action、Observation的规范顺序输出。
 * **可用工具列表（Tools Description）**：向模型提供工具名称、功能说明及入参格式规范，这是模型决定调用何种工具的主要依据。
 * **Few-Shot 格式示例**：提供标准的 Thought/Action 多轮交替范例，指导模型正确使用换行与分隔符。
 * **历史轨迹（History）**：将上一轮的 Action 和 Observation 追加到上下文，使模型能感知外部反馈。

@@ -1,9 +1,14 @@
+# Obsidian 与本地文件
 .obsidian/
 .trash
 file_tree.txt
+
+# 本地资料，不发布到 GitHub
 00资料暂存/
-01学习路径/
+01学习路径/03_待学习内容.md
 05AI应用工程/
-06AI工具技巧/
+06AI知识及工具拓展/
 07AI访谈/
+
+# 私有指令
 AGENTS.md
